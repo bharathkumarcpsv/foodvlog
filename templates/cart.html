@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800'><link rel="stylesheet" href="{% static 'cr/style.css' %}">
+
+</head>
+<body>
+
+<!-- partial:index.partial.html -->
+<header id="site-header">
+		<div class="container">
+			<h1>Shopping cart </h1>
+		</div>
+	</header>
+{% for i in ci %}
+	<div class="container">
+
+		<section id="cart">
+            <a href="{% url 'remove' i.prodt.id %}"><i class="fa fa-trash-o" style="font-size:48px;color:red"></i></a>
+			<article class="product">
+
+				<header>
+
+					<a class="remove">
+						</a><a href="{{i.prodt.get_url}}"><img src={{i.prodt.img.url}} height="50px" width="50px" alt="{{i.prodt.name}}" ></a>
+
+					</a>
+				</header>
+
+				<div class="content">
+
+					<a href="{{i.prodt.get_url}}"><h1>{{i.prodt.name}}</h1></a>
+
+					{{i.prodt.des}}
+
+
+
+				</div>
+
+				<footer class="content">
+					Rs{{i.prodt.price}} &nbsp; &nbsp;
+					<span class="qt-minus"><a href="{% url 'cart_decrement' i.prodt.id %}">-</a></span>
+					<span class="qt">{{i.quantity}}</span>
+					<span class="qt-plus"><a href="{% url 'addcart' i.prodt.id %}">+</a> </span>
+
+					<h2 class="full-price">
+						{{i.total}} <SMALL>RS</SMALL>
+					</h2>
+
+					<h2 class="price">
+
+					</h2>
+				</footer>
+			</article>
+		</section>
+		{% endfor %}
+	</div>
+<footer id="site-footer">
+		<div class=" ">
+
+<!--			<div class="right">-->
+				<h1 class="total">Total: <span>{{t}}</span><small>Rs</small></h1>
+<!--			</div>-->
+		</div>
+	</footer>
+<!-- partial -->
+  <script  src="{% static 'cr/script.js' %}"></script>
+
+</body>
+</html>
+{% endblock %}
