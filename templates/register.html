@@ -46,6 +46,9 @@ hr {
   opacity: 1;
 
 }
+.msg{
+color: white;
+}
 </style>
 </head>
 <body>
@@ -75,7 +78,11 @@ hr {
   <label for="psw-repeat"><b>Re-type Password</b></label>
   <input type="password" placeholder="Retype Password" name="psw-repeat" required><br>
   <button type="submit" class="registerbtn">login</button>
-      {{x}}
 </form>
+<div class="msg">
+{% for message in messages %}
+<h2>{{message}}</h2>
+{% endfor %}
+    </div>
 </body>
 </html>

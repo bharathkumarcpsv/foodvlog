@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User,auth
 from django.http import HttpResponse
 from django.shortcuts import render,redirect,get_object_or_404
 from django.core.exceptions import ObjectDoesNotExist
@@ -51,5 +52,8 @@ def cart_delete(request,product_id):
     c_items = items.objects.get(prodt=prod, cartss=ct)
     c_items.delete()
     return redirect('cartDetails')
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
 
 

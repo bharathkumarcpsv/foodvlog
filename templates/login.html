@@ -44,10 +44,13 @@ hr {
 .registerbtn:hover {
   opacity: 1;
 }
+.msg{
+color: white;
+}
 </style>
 </head>
 <body>
-<form action="login" method="post">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
   <div class="container">
   <center>  <h1> Login</h1> </center>
@@ -60,10 +63,16 @@ hr {
 <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
     <button type="submit" class="registerbtn">Login</button>
-
-
-</div>
-<div>
-
-</div>
 <label>
+
+</div>
+</div>
+    </form>
+<div class="msg">
+{% for message in messages %}
+<h2>{{message}}</h2>
+{% endfor %}
+    </div>
+</body>
+
+

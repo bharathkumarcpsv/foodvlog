@@ -35,7 +35,11 @@ https://templatemo.com/tm-544-comparto
                     {% if pr.stock <= 0 %}
                     <h1 style="color:red">No stock left</h1>
                     {% else %}
+                    {% if user.is_authenticated %}
                     <a href="{% url 'addcart' pr.id %}" class="tm-btn tm-btn-1 tm-link-to-services">Add to cart</a>
+                    {% else %}
+                            <div class="btn"><a href="/">Please Login</a> </div>
+                    {% endif %}
                     {% endif %}
                 </article>
             </div>

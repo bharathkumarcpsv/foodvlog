@@ -23,18 +23,10 @@
           {% if user.is_authenticated %}
           <li><h2><small>hi {{user.username}}</small></h2></li>
           <li><a class="active" href="{% url 'cartDetails'  %}">{{itc}}<i class="fa fa-shopping-cart" style="font-size:20px;color:white"></i></a></li>
-          <li><a class="active" href="accounts/logout">Logout</a></li>
-          {%  else %}
-          <li><a class="active" href="accounts/login">Login</a></li>
-          <li><a class="active" href="accounts/register">Register</a></li>
           {% endif %}
 
         </ul>
-
-
-
-        <!-- ################################################################################################ -->
-      </nav>
+         </nav>
     </header>
   </div>
 </div>
